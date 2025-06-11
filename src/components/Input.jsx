@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const Input = () => {
+  const [gender,setGender] =useState("both")
   const [input, setInput] = useState([]);
   const handleInput = (event) => {
     console.log(event.target.value, event.target.checked);
@@ -32,22 +33,19 @@ const Input = () => {
       <input onChange={handleInput} type="checkbox" id="C" value={"C"} />{" "}
       <label htmlFor="C">C</label>
       <hr />
-      {/* <input onChange={handleInput} type="checkbox" id="a" value={a} />{" "}
-      <label htmlFor="a">A</label>
-      <hr />
-      <input onChange={handleInput} type="checkbox" id="a" value={a} />{" "}
-      <label htmlFor="a">A</label>
-      <hr />
-      <input onChange={handleInput} type="checkbox" id="a" value={a} />{" "}
-      <label htmlFor="a">A</label>
-      <hr />
-      <input onChange={handleInput} type="checkbox" id="a" value={a} />{" "}
-      <label htmlFor="a">A</label>
-      <hr />
-      <input onChange={handleInput} type="checkbox" id="a" value={a} />{" "}
-      <label htmlFor="a">A</label>
-      <hr /> */}
-      <h1>{input}</h1>
+        <h1>{input}</h1>
+        <hr />
+     <input onChange={(event)=>{ setGender(event.target.value)}} name="gender" type="radio" value={"male"} id="male" />
+     <label htmlFor="male">male</label>
+    
+     <hr />
+ <input onChange={(event)=>{ setGender(event.target.value)}} name="gender" type="radio" value={"female"} id="female" />
+     <label htmlFor="female">female</label>
+     <hr />
+     <input onChange={(event)=>{ setGender(event.target.value)}} checked={gender == "both"} name="gender" type="radio" value={"both"} id="both" />
+     <label htmlFor="both">both</label>
+     <hr />
+     <h1>you are : {gender}</h1>
     </div>
   );
 };
