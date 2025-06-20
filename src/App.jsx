@@ -2,6 +2,7 @@ import React from 'react'
 import Friut from './components/Friut'
 import Toggle from './components/Toggle'
 import Input from './components/Input'
+import { Clock } from './components/Clock'
 const App = () => {
   return (
     <div className='bg-slate-300 w-[100%] h-[100%]'>
@@ -11,6 +12,7 @@ const App = () => {
        {/* <Friut />
        <Toggle/> */}
 <Input />
+<Clock />
     </div>
   )
 }
