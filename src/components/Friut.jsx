@@ -18,7 +18,7 @@ const Friut = () => {
     <div>
       <button
         className="bg-black text-white p-2 rounded-xl"
-        onClick={()=> updateFriut()}
+        onClick={() => updateFriut()}
       >
         {friut}
       </button>

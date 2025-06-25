@@ -21,7 +21,6 @@ const Layout = () => {
         <main className=" w-[80%] ml-[20%]">
           <Outlet />
         </main>
-        
       </div>
     </>
   );

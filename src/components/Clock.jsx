@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 export const Clock = () => {
   const [clock, setClock] = useState(0);
   useEffect(() => {
-   setInterval(()=>{
-    setClock(new Date().toLocaleTimeString())
-   },1)
+    setInterval(() => {
+      setClock(new Date().toLocaleTimeString());
+    }, 1);
   }, []);
   return (
     <div>
