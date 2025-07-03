@@ -13,6 +13,7 @@ const Layout = () => {
         </Link>
         <Link to="/Clock">Clock</Link>
         <Link to="/Input">Input</Link>
+        <Link to="/Crud">Crud</Link>
       </nav>
       <div className="w-full ">
         <div className="fixed z-10 h-screen w-[20%] bg-slate-500  text-4xl text-white  ">

@@ -7,6 +7,7 @@ import Input from "./components/Input";
 import { Clock } from "./components/Clock";
 import Layout from "./pages/Layout";
 import NotFound from "./pages/NotFound";
+import Crud from "./components/Crud";
 const routes = [
   {
     path: "/",
@@ -19,6 +20,11 @@ const routes = [
         path: "clock",
         element: <Clock />,
       },
+    {
+      path: "Crud",
+      element:<Crud/>
+    },
+      ,
       { path: "*", element: <NotFound /> },
     ],
   },
