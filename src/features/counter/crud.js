@@ -1,8 +1,4 @@
-// features/userSlice.js
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-
+import { createSlice } from '@reduxjs/toolkit';
 
 const userSlice = createSlice({
   name: 'users',
@@ -11,12 +7,22 @@ const userSlice = createSlice({
     status: 'idle',
   },
   reducers: {
-    addUser:(state,action)=>{
-      state.list.push(action.payload)
+    addUser: (state, action) => {
+      state.list.push(action.payload);
+      localStorage.setItem("data", JSON.stringify(state.list));
+    },
+
+    addUsers: (state, action) => {
+      state.list.push(...action.payload);
+      localStorage.setItem("data", JSON.stringify(state.list));
+    },
+
+    // 👇 Reducer to set list from passed array
+    setUsersFromStorage: (state, action) => {
+      state.list = action.payload;
     }
-  },
- 
-  },
-);
-export const {addUser}=userSlice.actions
+  }
+});
+
+export const { addUser, addUsers, setUsersFromStorage } = userSlice.actions;
 export default userSlice.reducer;

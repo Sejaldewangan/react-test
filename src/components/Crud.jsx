@@ -1,22 +1,32 @@
 // src/App.js
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addUser } from '../features/counter/crud';
-
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "../features/counter/crud";
+import { addUsers,setUsersFromStorage } from "../features/counter/crud";
 function Crud() {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users.list);
 
   const handleAdd = () => {
     if (name.trim()) {
       dispatch(addUser({ name }));
-      setName('');
+      setName("");
     }
   };
 
+ 
+
+  const dispatch1 = useDispatch();
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("data")) || [];
+    dispatch1(setUsersFromStorage(data));
+  }, []);
+
   return (
     <div style={{ padding: 20 }}>
+      
       <h2>Add User (Local)</h2>
       <input
         type="text"
@@ -31,6 +41,7 @@ function Crud() {
           <li key={index}>{u.name}</li>
         ))}
       </ul>
+
     </div>
   );
 }
